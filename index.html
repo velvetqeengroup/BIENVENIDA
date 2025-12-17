@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenida - Velvet Queen Agency</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gold: #FFD700;
+            --gold-light: #FFED4E;
+            --purple: #9370DB;
+            --purple-dark: #6A4C93;
+            --purple-darker: #3D1F5C;
+            --bg-dark: #1a0033;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--purple-darker) 50%, var(--bg-dark) 100%);
+            color: #fff;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Estrellas animadas */
+        .sparkles-container {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 50%;
+            animation: sparkleAnim 3s infinite;
+            box-shadow: 0 0 15px var(--gold);
+        }
+
+        @keyframes sparkleAnim {
+            0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1.5) rotate(180deg); }
+        }
+
+        /* Container principal */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeInDown 1s ease;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .crown {
+            font-size: 5em;
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 30px var(--gold));
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5em;
+            font-weight: 900;
+            background: linear-gradient(45deg, var(--gold), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        /* Welcome Section */
+        .welcome-section {
+            background: linear-gradient(145deg, rgba(147, 112, 219, 0.2), rgba(61, 31, 92, 0.3));
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 30px;
+            padding: 50px;
+            margin-bottom: 50px;
+            text-align: center;
+            animation: fadeIn 1.2s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .welcome-title {
+            font-size: 2em;
+            color: var(--gold);
+            margin-bottom: 25px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .welcome-text {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #e6e6e6;
+            margin-bottom: 20px;
+        }
+
+        /* Benefits Grid */
+        .benefits-section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            text-align: center;
+            background: linear-gradient(45deg, var(--gold), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 40px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .benefit-card {
+            background: linear-gradient(145deg, rgba(147, 112, 219, 0.15), rgba(61, 31, 92, 0.3));
+            border: 2px solid rgba(255, 215, 0, 0.2);
+            border-radius: 20px;
+            padding: 35px;
+            transition: all 0.4s;
+            animation: fadeInUp 0.8s ease;
+            animation-fill-mode: both;
+        }
+
+        .benefit-card:nth-child(1) { animation-delay: 0.1s; }
+        .benefit-card:nth-child(2) { animation-delay: 0.2s; }
+        .benefit-card:nth-child(3) { animation-delay: 0.3s; }
+        .benefit-card:nth-child(4) { animation-delay: 0.4s; }
+        .benefit-card:nth-child(5) { animation-delay: 0.5s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+            box-shadow: 0 20px 60px rgba(255, 215, 0, 0.3);
+        }
+
+        .benefit-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .benefit-title {
+            font-size: 1.4em;
+            color: var(--gold);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .benefit-text {
+            color: #d4d4d4;
+            line-height: 1.7;
+        }
+
+        /* Commitments Section */
+        .commitments-section {
+            background: linear-gradient(145deg, rgba(255, 215, 0, 0.1), rgba(147, 112, 219, 0.2));
+            padding: 50px;
+            border-radius: 30px;
+            margin-bottom: 50px;
+        }
+
+        .commitment-item {
+            background: rgba(61, 31, 92, 0.3);
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 15px;
+            border-left: 5px solid var(--gold);
+            transition: all 0.3s;
+        }
+
+        .commitment-item:hover {
+            transform: translateX(10px);
+            background: rgba(61, 31, 92, 0.5);
+        }
+
+        .commitment-title {
+            font-size: 1.4em;
+            color: var(--gold);
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .commitment-text {
+            color: #e6e6e6;
+            line-height: 1.7;
+        }
+
+        /* Goals Section */
+        .goals-section {
+            background: linear-gradient(145deg, rgba(255, 215, 0, 0.15), rgba(147, 112, 219, 0.15));
+            padding: 50px;
+            border-radius: 30px;
+            border: 2px solid var(--gold);
+            margin-bottom: 50px;
+        }
+
+        .goal-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 20px;
+            margin: 15px 0;
+            background: rgba(61, 31, 92, 0.2);
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .goal-item:hover {
+            background: rgba(61, 31, 92, 0.4);
+            transform: translateX(10px);
+        }
+
+        .goal-check {
+            font-size: 1.5em;
+            color: var(--gold);
+        }
+
+        .goal-text {
+            font-size: 1.1em;
+            color: #e6e6e6;
+            line-height: 1.7;
+        }
+
+        .goal-text strong {
+            color: var(--gold);
+        }
+
+        /* Key Advice Box */
+        .advice-box {
+            background: rgba(255, 215, 0, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+            text-align: center;
+            border: 2px solid var(--gold);
+        }
+
+        .advice-label {
+            font-size: 1.3em;
+            color: var(--gold);
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .advice-text {
+            font-size: 1.1em;
+            color: #e6e6e6;
+            line-height: 1.8;
+        }
+
+        /* Model Figure */
+        .model-figure {
+            text-align: center;
+            margin: 40px 0;
+            font-size: 8em;
+            animation: float 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px var(--gold));
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #999;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2em;
+            background: linear-gradient(45deg, var(--gold), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5em;
+            }
+
+            .welcome-section {
+                padding: 30px 20px;
+            }
+
+            .welcome-title {
+                font-size: 1.5em;
+            }
+
+            .section-title {
+                font-size: 2em;
+            }
+
+            .commitments-section,
+            .goals-section {
+                padding: 30px 20px;
+            }
+
+            .model-figure {
+                font-size: 5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Estrellas animadas -->
+    <div class="sparkles-container" id="sparklesContainer"></div>
+
+    <!-- Container Principal -->
+    <div class="main-container">
+        
+        <!-- Header -->
+        <header class="header">
+            <div class="crown">👑</div>
+            <h1 class="logo">VELVET QUEEN AGENCY</h1>
+            <p style="color: var(--purple); font-size: 1.3em; letter-spacing: 2px;">¡BIENVENIDA A NUESTRO EQUIPO!</p>
+        </header>
+
+        <!-- Welcome Section -->
+        <section class="welcome-section">
+            <h2 class="welcome-title">GRACIAS POR CONFIAR EN NOSOTROS, DESDE HOY<br>COMENZAMOS JUNTAS UN CAMINO DE CRECIMIENTO Y ÉXITO</h2>
+            <p class="welcome-text">
+                <strong style="color: var(--gold);">La clave del éxito aquí es la constancia.</strong> No importa si el primer día hay poca audiencia, 
+                lo importante es estar presente, aprender y crecer paso a paso.
+            </p>
+        </section>
+
+        <!-- Hero Image -->
+        <div class="hero-image-container">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=800&h=800&fit=crop" alt="Modelo Velvet Queen" class="hero-image">
+            <div class="image-sparkles">✨</div>
+        </div>
+
+        <!-- Benefits Section -->
+        <section class="benefits-section">
+            <h2 class="section-title">✨ Beneficios de Pertenecer a la Agencia</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <span class="benefit-icon">🌟</span>
+                    <h3 class="benefit-title">Acompañamiento Personalizado</h3>
+                    <p class="benefit-text">Estaremos contigo paso a paso en todo tu proceso de crecimiento.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <span class="benefit-icon">📚</span>
+                    <h3 class="benefit-title">Capacitación Exprés</h3>
+                    <p class="benefit-text">Para que aprendas a manejar la app y crear transmisiones atractivas rápidamente.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <span class="benefit-icon">📈</span>
+                    <h3 class="benefit-title">Estrategias de Crecimiento</h3>
+                    <p class="benefit-text">Metas claras y realistas para que veas resultados desde el inicio y aumentes tu visibilidad.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <span class="benefit-icon">💜</span>
+                    <h3 class="benefit-title">Comunidad y Motivación</h3>
+                    <p class="benefit-text">Un espacio seguro donde podrás trabajar y crecer con tu estilo único.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <span class="benefit-icon">🎁</span>
+                    <h3 class="benefit-title">Incentivos y Regalos</h3>
+                    <p class="benefit-text">Reconocemos tu esfuerzo y dedicación con premios especiales.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Commitments Section -->
+        <section class="commitments-section">
+            <h2 class="section-title">💎 Tus Compromisos para Brillar con la Agencia</h2>
+
+            <div class="commitment-item">
+                <div class="commitment-title">⭐ Constancia</div>
+                <p class="commitment-text">Transmitir con regularidad es la clave del crecimiento. La constancia vale más que la perfección.</p>
+            </div>
+
+            <div class="commitment-item">
+                <div class="commitment-title">📅 Disciplina</div>
+                <p class="commitment-text">Cumplir con las horas y metas semanales fijadas por la aplicación.</p>
+            </div>
+
+            <div class="commitment-item">
+                <div class="commitment-title">💼 Actitud Profesional</div>
+                <p class="commitment-text">Mantener buena energía, respeto y compromiso durante las transmisiones.</p>
+            </div>
+
+            <div class="commitment-item">
+                <div class="commitment-title">🎨 Creatividad y Participación</div>
+                <p class="commitment-text">Probar nuevas ideas, dinámicas y actividades sugeridas en talleres o reuniones.</p>
+            </div>
+
+            <div class="commitment-item">
+                <div class="commitment-title">🛡️ Respeto a las Normas de la Plataforma</div>
+                <p class="commitment-text">Proteger tu seguridad y la de la comunidad, evitando conductas que puedan cerrar tu cuenta.</p>
+            </div>
+
+            <div class="commitment-item">
+                <div class="commitment-title">💬 Comunicación Abierta</div>
+                <p class="commitment-text">Informar a tu manager cualquier dificultad, duda o inconveniente para poder apoyarte.</p>
+            </div>
+        </section>
+
+        <!-- Goals Section -->
+        <section class="goals-section">
+            <h2 class="section-title">🎯 Tu Primer Objetivo Esta Semana</h2>
+
+            <div class="goal-item">
+                <span class="goal-check">✅</span>
+                <p class="goal-text"><strong>Configurar bien tu perfil:</strong> foto, descripción y presentación atractiva.</p>
+            </div>
+
+            <div class="goal-item">
+                <span class="goal-check">✅</span>
+                <p class="goal-text"><strong>Transmitir al menos 5 horas al día</strong> con una meta mínima de 3000 diarios.</p>
+            </div>
+
+            <div class="goal-item">
+                <span class="goal-check">✅</span>
+                <p class="goal-text"><strong>Enfocarte en interactuar</strong> con los seguidores con buena actitud y constancia.</p>
+            </div>
+
+            <div class="advice-box">
+                <div class="advice-label">💡 Consejo Clave</div>
+                <p class="advice-text">
+                    Establece un horario regular, asegura una buena conexión a internet, equipo de calidad, 
+                    y desarrolla un estilo personal con carisma y autoestima.
+                </p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-logo">👑 VELVET QUEEN AGENCY</div>
+            <p>© 2024 Velvet Queen Agency. Todos los derechos reservados.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        // Crear estrellas animadas
+        function createSparkles() {
+            const container = document.getElementById('sparklesContainer');
+            const sparkleCount = 60;
+
+            for (let i = 0; i < sparkleCount; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = Math.random() * 100 + '%';
+                sparkle.style.top = Math.random() * 100 + '%';
+                sparkle.style.animationDelay = Math.random() * 3 + 's';
+                sparkle.style.animationDuration = (2 + Math.random() * 2) + 's';
+                container.appendChild(sparkle);
+            }
+        }
+
+        createSparkles();
+    </script>
+</body>
+</html>
